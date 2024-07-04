@@ -6,23 +6,18 @@
  * };
  */
 struct ListNode* removeElements(struct ListNode* head, int val) {
-   while (head != NULL && head->val == val) {
-            head = head->next;
-        }
+   while(head!=NULL && head->val==val)
+{
+head=head->next;
+}
+struct ListNode *pre = head;
 
-        if (head == NULL) {
-            return NULL;
-        }
-
-        struct ListNode* temp = head;
-        struct ListNode* nextNode; 
-        while (temp->next != NULL) {
-            nextNode = temp->next;
-            if (nextNode->val == val) {
-                temp->next = nextNode->next;
-            } else {
-                temp = temp->next;
-            }
-        }
-        return head;
+while(pre!=NULL && pre->next)
+{
+if(pre->next->val != val)
+pre=pre->next;
+else
+pre->next=pre->next->next;
+}
+return head;
 }
