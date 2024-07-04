@@ -7,9 +7,10 @@
  */
 int getDecimalValue(struct ListNode* head) {
     int result=0;
-    while (head) {
-        result = result << 1 | head->val;
-        head = head->next;
+     struct ListNode* current = head;
+    while (current) {
+        result = result << 1 | current->val;
+        current = current->next;
     }
     return result;
     
